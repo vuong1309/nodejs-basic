@@ -12,13 +12,14 @@
 //     console.log('Node.JS server is running on port: 3000')
 // })
 
-const express = require('express')
+import express from 'express';
+import configViewEngine from './config/viewEngine';
 const app = express()
 const port = 8080
 
-
+configViewEngine(app);
 app.get('/', (req, res) => {
-    res.send('Hello World! vs Hoi Dan IT & Eric')
+    res.render('index.ejs')
 })
 
 app.get('/about', (req, res) => {
