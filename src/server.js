@@ -14,8 +14,12 @@
 
 import express from 'express';
 import configViewEngine from './config/viewEngine';
+require('dotenv').config();
+
 const app = express()
-const port = 8080
+const port = process.env.PORT;
+// backup: const port = process.env.PORT || 3000;
+
 
 configViewEngine(app);
 app.get('/', (req, res) => {
@@ -27,5 +31,5 @@ app.get('/about', (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
+    console.log(`Example app listening at http://localhost:${port}`)
 })
